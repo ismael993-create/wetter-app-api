@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wetter App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="/img/clear.png">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="card">
+        <form class="search" onsubmit="
+        event.preventDefault();
+        document.querySelector('.suggestions').innerHTML = '';
+        checkWeather(document.querySelector('.search input').value);
+    ">
+            <input type="text" placeholder="Enter city name" spellcheck="false" oninput="showSuggestions(this.value)">
+            <button type="submit"><img src="img/search.png" alt="Search"></button>
+        </form>
+        <ul class="suggestions"></ul>
+        <div class="error">
+            <p>City not found</p>
+        </div>
+
+        <div class="weather">
+            <img src="img/rain.png" class="weather-icon" alt="Weather Icon">
+            <h1 class="temp">22°C</h1>
+            <h2 class="city">New York</h2>
+            <div class="details">
+                <div class="col">
+                    <img src="img/humidity.png" alt="Humidity Icon">
+                    <div>
+                        <p class="humidity">50%</p>
+                        <p>Luftfeuchtigkeit</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="img/wind.png" alt="Wind Icon">
+                    <div>
+                        <p class="wind">10 km/h</p>
+                        <p>Windgeschwindigkeit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
